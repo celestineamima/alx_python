@@ -1,8 +1,6 @@
-from add_0 import add
-if __name__ == "__main__":
-    a = 1
-    b = 2
-
-    result = add(a, b)
-    print("{:d} + {:d} = {:d}".format(a, b, result))
-    
+def no_c(my_string):
+    my_new_string = ""
+    for char in my_string:
+        if char not in ( "c", "C"):
+            my_new_string += char
+    return my_new_string
