@@ -1,14 +1,26 @@
-"""
-an empty class
-"""
-class BaseGeometry:
+'''
+ task 5
+'''
+class NoInitSubclassMeta(type):
     """
-    empy class
+    A metaclass that removes the '__init_subclass__' attribute from class directory.
     """
-    pass
+    def __dir__(cls):
+        return [attr for attr in super().__dir__() if attr != '__init_subclass__']
 
+
+class BaseGeometry(metaclass=NoInitSubclassMeta):
     """
-    a function that defines area and raise exception
+      common interface for geometric operations.
     """
+    def __dir__(cls):
+        """
+        Remove '__init_subclass__' attribute from the class directory.
+        """
+        return [attr for attr in super().__dir__() if attr != '__init_subclass__']
+
     def area(self):
+        """
+          area of the geometry.
+        """
         raise Exception("area() is not implemented")
