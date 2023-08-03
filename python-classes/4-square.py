@@ -1,46 +1,36 @@
-#!usr/bin/python3
-"""module with a class that defines a square"""
+#!/usr/bin/python3
+'''
+This program has a class square that defines a square with a private instance attribute named size
+'''
 class Square:
-    """defining square object
-    args:
-    size(param
-    ) is assumed to be an int"""
+    ''' delcaration of the class'''
     def __init__(self, size=0):
-            self.__size = size 
-            """private attribute"""
-            while type(size) is int:
-                  if size < 0:
-                        raise ValueError("size must be >= 0")
-                  break
-            else:           
-                raise TypeError("size must be an integer")
-    """public instance method takes parameter self and can be accessed both inside and outside class"""
-    def area(self):
-          """area"""
-          return self.__size ** 2
-    """using the property method to access the private attribute value"""
-    """property to retrieve private attribute; size"""
+        '''defining and initializing the square object with a private size attribute'''
+        self.__size = size 
     @property
     def size(self):
-          return self.__size
+        '''defining the method for retrieving the size attribute'''
+        return self.__size
     @size.setter
     def size(self, value):
-          self.__size = value
-          """type/value validation"""
-          while type(value) is int:
-                  if value < 0:
-                        raise ValueError("size must be >= 0")
-                  break
-          else:           
-                raise TypeError("size must be an integer")
-          """printing a square"""
-          """public insance method that prins the stdout the square with the character #"""
-          def my_print(self):
-                if self.__size == 0:
-                      print("")
-                else:
-                      for i in range(0, self.__size):
-                            for k in range(0, self.__size):
-                                  print("#", end="")
-                            print("")
-                            
+        '''
+        property setter method to set the attribute.
+        Creating the loop for checking whether the size is an integer and not less than zero
+        '''
+        self.__size = value
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+    def area(self):
+        '''defining the method to compute the current squared area'''
+        self.area = self.__size**2
+        return self.area
+    def my_print(self):
+        '''the public instance method that prints in stdout the square with the character'''
+        if self.__size == 0:
+            print("")
+        else:
+            for i in range(0, self.__size):
+              print("#" *self.__size)
+              
