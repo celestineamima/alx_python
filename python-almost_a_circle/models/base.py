@@ -1,24 +1,23 @@
-#!/usr/bin/python3
-"""Defines Base class """
-
-
+'''
+This is the almost a circle project in the alx intro to swe
+'''
 class Base:
-    """Class Base.
+    '''
+    This is the base class containing a private class attribute
+    and other functions
 
-    Attributes:
-        id (int): Identity of each instance.
-    """
+    attributes:
+        id(int)
+    '''
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Creates instances of Base.
-
-        Args:
-            id (int, optional): Identity of instance.
-        """
-        if id == None:
+        '''
+        This is the initialization function - creates instances of base
+        '''
+        if id is not None:
+            self.id = id
+        else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-        else:
-            self.id = id
-        
+
